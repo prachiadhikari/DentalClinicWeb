@@ -53,7 +53,6 @@ function actualregister(req,res,next)
 		address:req.body.address,
 		gender:req.body.gender,
 		dob:req.body.dob,
-
 		password:req.hashKey
 
 	})
