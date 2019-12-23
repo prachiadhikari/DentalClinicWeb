@@ -14,7 +14,9 @@ function validator(req,res,next)
 		res.json({status:200,message:'password is required'});
 	}
 		else{
+			//console.log(req.body)
 			next();
+			//res.json({status:200,message:'jhwbj'})
 		}
 }
 
@@ -47,6 +49,11 @@ function actualregister(req,res,next)
 {//insert into user table
 	user.create({
 		username:req.body.username,
+		fullname:req.body.fullname,
+		address:req.body.address,
+		gender:req.body.gender,
+		dob:req.body.dob,
+
 		password:req.hashKey
 
 	})
@@ -89,70 +96,4 @@ function checkIfUserExits(req,res,next){
 	})
 }
 
-function deleteUser(req,res,next)
-{
-	console.log('here')
-	if (req.params.id===null ||req.params.id===undefined){
-		res.status(404);
-		res.josn({status:404,message:'id not provided'})
-	}
-	//req.params.id
-	user.destroy({
-		where:{
-			id:req.params.id
-		}
-	}).then(function(result){
-		console.log(result);
-		if (result===0){
-			res.json({status:500,message:"couldnot delete"})
-		}
-		else
-		{
-			res.json({staus:200})
-		}
-	})
-	.catch(function(err)
-	{
-
-	})
-
-	;
-}
-
-function editUser(req,res,next)
-{
-	console.log('here')
-	if (req.params.id===null ||req.params.id===undefined){
-		res.status(404);
-		res.josn({status:404,message:'id not provided'})
-	}
-
-	user.update({
-		username:req.body.username,
-		password:req.xyz},{
-		where:{
-			id:req.params.id
-			
-		}
-	})
-	.then(function(result)
-	{
-		if (result===0)
-		{
-			res.json({status:500,message:" can not edit"})
-
-		}
-		else
-		{
-			res.json({staus:200})
-
-		}
-	})
-	.catch(function(err)
-	{
-
-	})
-
-	;
-}
-module.exports={validator,checkIfUserExits,genHash,actualregister,deleteUser,editUser}
+module.exports={validator,checkIfUserExits,genHash,actualregister}

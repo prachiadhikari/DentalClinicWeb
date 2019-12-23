@@ -1,5 +1,7 @@
 var dbConfig =require('../Config/databaseConfig.js');
-//for defining model
+
+
+
 
  var user = dbConfig.sequelize.define('user',
  //table name
@@ -14,7 +16,22 @@ var dbConfig =require('../Config/databaseConfig.js');
  		autoIncrement:true,
  		allowNull:false
  	},
- 	Fullname:
+ 	fullname:
+ 	{
+ 		type:dbConfig.Sequeslize.TEXT ,//datatype
+ 		allowNull:false
+ 	},
+ 	address:
+ 	{
+ 		type:dbConfig.Sequeslize.TEXT ,//datatype
+ 		allowNull:false
+ 	},
+ 	dob:
+ 	{
+ 		type:dbConfig.Sequeslize.TEXT ,//datatype
+ 		allowNull:false
+ 	},
+ 	gender:
  	{
  		type:dbConfig.Sequeslize.TEXT ,//datatype
  		allowNull:false
@@ -30,29 +47,13 @@ var dbConfig =require('../Config/databaseConfig.js');
  	{
  		type:dbConfig.Sequeslize.TEXT ,//datatype
  		allowNull:false
- 	},
- 	address:
- 	{
- 		type:dbConfig.Sequeslize.TEXT ,//datatype
- 		allowNull:false
- 	},
- 	dateOfBirth:
- 	{
- 		type:dbConfig.Sequeslize.DATE ,//datatype
- 		allowNull:false
- 	},
- 	Gender:
- 	{
- 		type:dbConfig.Sequeslize.TEXT ,//datatype
- 		allowNull:false
- 	},
-
+ 	}
 },	
  	
    {
    	paranoid:true,
  	freezeTableName:false,
- 	tableName:'user' 
+ 	tableName:'user_table' 
  	//table name change
 
 
@@ -70,59 +71,4 @@ console.log("success");
  	console.log(err)
  })
 
-
- var doctor = dbConfig.sequelize.define('doctor',
- //table name
- {
- 	//attributes
-
- 	id:
- 	{
- 		type:dbConfig.Sequeslize.INTEGER ,
- 		//datatype
- 		primaryKey:true ,
- 		autoIncrement:true,
- 		allowNull:false
- 	},
-
- 	FullName:
- 	{
- 		type:dbConfig.Sequeslize.TEXT ,//datatype
- 		allowNull:false
- 	},
-
- 	NMCNo:
- 	{
- 		type:dbConfig.Sequeslize.TEXT ,//datatype
- 		allowNull:false
- 	},
- 	university:
- 	{
- 		type:dbConfig.Sequeslize.TEXT ,//datatype
- 		allowNull:false
- 	},
- 	qualification:
- 	{
- 		type:dbConfig.Sequeslize.TEXT ,//datatype
- 		allowNull:false
- 	},
-
- 	
-},
- 	
-   {
- 	freezeTableName:true,
- 	tableName:'doctor'
-
-
-    }) 
-  doctor.sync({force:false})   
- .then(function(result){
-console.log(result)
- })
- .catch(function(err)
- {
- 	console.log(err)
- })
-
-module.exports={doctor,user};
+module.exports=user;

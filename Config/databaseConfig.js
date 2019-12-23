@@ -1,7 +1,7 @@
 //----for connection with database----
 var Sequeslize=require('sequelize');
 var sequelize = new Sequeslize
-('clinic','root','flyweight', //database,usernaem,password
+('BgDentalClinic','root','flyweight', //database,usernaem,password
 {
 	host:'localhost',
 	dialect:'mysql',
@@ -9,10 +9,8 @@ var sequelize = new Sequeslize
 
 });
 
-//----testing connection---
 sequelize
   .authenticate()
-  //--- .then() is promise handeler--- for actual data create callback function
   .then(function(result)  {
     console.log('Connection has been established successfully.');
   })
