@@ -95,4 +95,34 @@ function checkIfUserExits(req,res,next){
 	})
 }
 
-module.exports={validator,checkIfUserExits,genHash,actualregister}
+function deleteUser(req,res,next)
+{
+	console.log('here')
+	if (req.params.id===null ||req.params.id===undefined){
+		res.status(404);
+		res.josn({status:404,message:'id not provided'})
+	}
+	//req.params.id
+	user.destroy({
+		where:{
+			id:req.params.id
+		}
+	}).then(function(result){
+		console.log(result);
+		if (result===0){
+			res.json({status:500,message:"couldnot delete"})
+		}
+		else
+		{
+			res.json({staus:200,message:"delete sucessfully"})
+		}
+	})
+	.catch(function(err)
+	{
+
+	})
+
+	;
+}
+
+module.exports={validator,checkIfUserExits,genHash,actualregister,deleteUser}
