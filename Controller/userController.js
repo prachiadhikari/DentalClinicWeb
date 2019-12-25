@@ -125,4 +125,37 @@ function deleteUser(req,res,next)
 	;
 }
 
-module.exports={validator,checkIfUserExits,genHash,actualregister,deleteUser}
+function editUser(req,res,next){
+	if (req.params.id===null || req.params.id===undefined){
+		res.status(404);
+		res.json({status:404,message:'id not provided'})
+	}
+	user.update({
+		username:req.body.username,
+		password:req.xyz
+	},
+	{
+		where:{
+			id:req.params.id
+		}
+	})
+	.then(function(result)
+	{
+		console.log(result);
+
+		if(result===0){
+			res.json({status:500,message:'can not edit'})
+		}
+		else
+		{
+			res.json({status:200,message:'edited sucessfully'})
+		}
+	})
+		.catch(function(err)
+	{
+         res.json({status:404,message:'can not delete'})
+	})
+	;
+}
+
+module.exports={validator,checkIfUserExits,genHash,actualregister,deleteUser,editUser}

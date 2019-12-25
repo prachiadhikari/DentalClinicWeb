@@ -19,6 +19,8 @@ app.post('/registration',userController.validator,userController.checkIfUserExit
 
 app.post('/login',authController.validator,
 	authController.passwordChecker,authController.jwtTokenGen)
+app.put('/update/:id',authController.verifyToken,
+	userController.editUser)
 
 app.delete('/user/:id',authController.verifyToken,userController.deleteUser)
-app.listen(3000);
+app.listen(3002);
