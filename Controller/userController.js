@@ -153,7 +153,7 @@ function editUser(req,res,next){
 	})
 		.catch(function(err)
 	{
-         res.json({status:404,message:'can not delete'})
+         //res.json({status:404,message:'can not delete'})
 	})
 	;
 }

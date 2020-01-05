@@ -20,7 +20,9 @@ user.findOne({
 .then(function(result){
 
 if(result === null){
-	status:404;
+	
+ 	res.json({status:404,message:'Please enter valid username and password'})
+
 
 
 }
@@ -83,6 +85,8 @@ function jwtTokenGen(req, res, next )
 
 	function verifyToken(req,res,next)
 	{
+		//header ma authorization key hunxa so token is sent on the header
+		/*Bearer (token)*/
 
 		console.log(req.headers.authorization)
 		var token = req.headers.authorization.slice(7,req.headers.authorization.length)
@@ -91,12 +95,14 @@ function jwtTokenGen(req, res, next )
 			console.log(err,result)
 			if(result)
 			{
+				// console.log(result)
+			// res.json({status:200,message:'userdeleted'})
 			next();
 			}
 			else
 			{
 				res.status(500)
-				res.json({status:500,message:'cannot delete'});
+				res.json({status:500,message:'token does not match'});
 			}
 		})
 	}

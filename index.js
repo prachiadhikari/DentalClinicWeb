@@ -10,6 +10,8 @@ app.use(bodyParser.urlencoded({extended:true}))
 var userModel=require('./Model/UserModel.js');
 var userController=require('./Controller/userController.js');
 var authController=require('./Controller/AuthController.js');
+var doctorController=require('./Controller/doctorController.js');
+
 
 
 
@@ -23,4 +25,9 @@ app.put('/update/:id',authController.verifyToken,
 	userController.editUser)
 
 app.delete('/user/:id',authController.verifyToken,userController.deleteUser)
-app.listen(3002);
+
+//-----------------------------------------------------------//
+app.post('/addDoctor',authController.verifyToken,doctorController.addDoctor,
+	doctorController.editDoctor,doctorController.deleteDoctor)
+//---------------------------------------------------//
+app.listen(3005);
