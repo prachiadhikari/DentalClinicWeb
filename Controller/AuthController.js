@@ -95,8 +95,7 @@ function jwtTokenGen(req, res, next )
 			console.log(err,result)
 			if(result)
 			{
-				// console.log(result)
-			// res.json({status:200,message:'userdeleted'})
+				
 			next();
 			}
 			else
