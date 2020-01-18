@@ -1,5 +1,7 @@
 
 var user=require('../Model/UserModel.js');
+var user=require('../Model/DoctorModel.js');
+
 var bcrypt=require('bcrypt');
 var jwt=require('jsonwebtoken');
 

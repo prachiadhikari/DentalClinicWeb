@@ -1,5 +1,5 @@
 
-var doctor=require('../Model/UserModel.js');
+var doctor=require('../Model/DoctorModel.js');
 
 function addDoctor(req,res,next){
 	doctor.create({

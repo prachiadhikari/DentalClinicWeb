@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const morgan = require('morgan');
 const userRouter = require('./routes/users');
 const doctorRouter = require('./routes/doctor');
+const appoRouter = require('./routes/appointment');
+
 
 
 
@@ -30,6 +32,8 @@ app.use('/users', userRouter);
 
 app.use('/upload', uploadRouter);
 app.use('/doctor', doctorRouter);
+app.use('/appointment', appoRouter);
+
 
 
 

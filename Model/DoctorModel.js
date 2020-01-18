@@ -1,9 +1,7 @@
+//doctor details
 var dbConfig =require('../Config/databaseConfig.js');
 
-
-
-
- var user = dbConfig.sequelize.define('user',
+  var doctor = dbConfig.sequelize.define('doctor',
  //table name
  {
  	//attributes
@@ -16,34 +14,28 @@ var dbConfig =require('../Config/databaseConfig.js');
  		autoIncrement:true,
  		allowNull:false
  	},
- 	fullname:
+ 	doctorname:
  	{
  		type:dbConfig.Sequeslize.TEXT ,//datatype
  		allowNull:false
  	},
- 	address:
+ 	qualify:
  	{
  		type:dbConfig.Sequeslize.TEXT ,//datatype
  		allowNull:false
  	},
- 	dob:
+ 	type:
  	{
  		type:dbConfig.Sequeslize.TEXT ,//datatype
  		allowNull:false
  	},
- 	gender:
- 	{
- 		type:dbConfig.Sequeslize.TEXT ,//datatype
- 		allowNull:false
- 	},
-
- 	username:
+ 	university:
  	{
  		type:dbConfig.Sequeslize.TEXT ,//datatype
  		allowNull:false
  	},
 
- 	password:
+ 	NMCNo:
  	{
  		type:dbConfig.Sequeslize.TEXT ,//datatype
  		allowNull:false
@@ -53,24 +45,21 @@ var dbConfig =require('../Config/databaseConfig.js');
    {
    	paranoid:true,
  	freezeTableName:false,
- 	tableName:'user_table' 
+ 	tableName:'doctor' 
  	//table name change
 
 
     }) 
 
-  user.sync({force:false})   //promise handeler so 
+  doctor.sync({force:true})   //promise handeler so 
  .then(function(result)
  {
 console.log(result);
-console.log("user table created");
+console.log("doctor table is created");
 
  })
  .catch(function(err)
  {
  	console.log(err)
  })
-
- 
-
-module.exports=user;
+module.exports=doctor;

@@ -8,6 +8,8 @@ var app = express();
 app.use(bodyParser.urlencoded({extended:true})) 
 
 var userModel=require('./Model/UserModel.js');
+var userModel=require('./Model/DoctorModel.js');
+
 var userController=require('./Controller/userController.js');
 var authController=require('./Controller/AuthController.js');
 var doctorController=require('./Controller/doctorController.js');
