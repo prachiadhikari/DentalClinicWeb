@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post('/addAppointment', (req, res, next) => {
     
-        Appointment.create({
+    Appointment.create({
             name:req.body.name,
             date:req.body.date,
             time:req.body.time,
@@ -19,7 +19,7 @@ router.post('/addAppointment', (req, res, next) => {
     })
 
 router.get('/',(req, res, next) => {
-    Doctors.find({},(err,appo)=>{
+    Appointment.find({},(err,appo)=>{
         if(err){
             res.json(next)
         }

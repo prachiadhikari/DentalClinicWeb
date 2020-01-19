@@ -20,7 +20,7 @@ router.post('/addDoctor', (req, res, next) => {
     })
 
 router.get('/',(req, res, next) => {
-    Listed.find({},(err,doctors)=>{
+    Doctors.find({},(err,doctor)=>{
         if(err){
             res.json(next)
         }
