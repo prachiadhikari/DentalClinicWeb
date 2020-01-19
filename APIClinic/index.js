@@ -4,6 +4,11 @@ const morgan = require('morgan');
 const userRouter = require('./routes/users');
 const doctorRouter = require('./routes/doctor');
 const appoRouter = require('./routes/appointment');
+const contactRouter = require('./routes/contact');
+const treatmentRouter = require('./routes/treatment');
+const feedbackRouter = require('./routes/feedback');
+
+
 
 
 
@@ -33,6 +38,12 @@ app.use('/users', userRouter);
 app.use('/upload', uploadRouter);
 app.use('/doctor', doctorRouter);
 app.use('/appointment', appoRouter);
+app.use('/feedback', feedbackRouter);
+app.use('/contact', contactRouter);
+app.use('/treatment', treatmentRouter);
+
+
+
 
 
 
